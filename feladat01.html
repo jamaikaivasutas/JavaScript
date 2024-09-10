@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #zold { 
+            background-color: green;
+            flex-grow: 1;
+        }
+
+        #sarga {
+            background-color: yellow;
+            flex-grow: 1;
+        }
+
+        #lila {
+            background-color: purple;
+            flex-grow: 1;
+        }
+
+        .zold2 {
+            background-color: green;
+            flex-grow: 1;
+        }
+
+        .sarga2 {
+            background-color: yellow;
+            flex-grow: 2;
+        }
+
+        .lila2 {
+            background-color: purple;
+            flex-grow: 1;
+        }
+
+        .container {    
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 300px;
+        }
+
+        .container2 {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            height: 600px;
+        }
+
+    </style>
+</head>
+<body>
+    1.
+    <div class="container">
+        <div id="zold"></div>
+        <div id="sarga"></div>
+        <div id="lila"></div>
+    </div>
+    2. feladat
+    <div class="container">
+        <div class="zold2"></div>
+        <div class="sarga2"></div>
+        <div class="lila2"></div>
+    </div>
+    3. feladat
+    <div class="container">
+        <div class="lila2"></div>
+        <div class="sarga2"></div>
+        <div class="zold2"></div>
+    </div>
+    4. feladat
+    <div class="container2">
+        <div class="zold2"></div>
+        <div class="lila2"></div>
+        <div class="sarga2"></div>
+    </div>
+</body>
+</html>
