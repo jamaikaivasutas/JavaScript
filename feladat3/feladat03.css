@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1. Feladat */
+.container1 {
+    width: 100%;
+    height: 700px;
+    background-color: purple;
+    display: flex; 
+    position: absolute;
+}
+
+.button {
+    width: 115px;
+    height: 35px;
+    background-color: cyan;
+    position: relative;
+    left: 10px;
+    top: 10px;
+}
+
+.button2 {
+    width: 115px;
+    height: 35px;
+    background-color: cyan;
+    position: relative;
+    left: 40px;
+    top: 10px;
+}
+
+.button3 {
+    width: 115px;
+    height: 35px;
+    background-color: cyan;
+    position: relative;
+    left: 70px;
+    top: 10px;
+}
+
+
+.content {
+    width: 60%;
+    height: 550px;
+    background-color: yellow;
+    
+    position: relative;
+    top: 100px;
+}
+
+
