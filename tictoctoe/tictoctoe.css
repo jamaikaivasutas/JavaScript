@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    #menu {
+      margin-bottom: 20px;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 5px;
+    }
+    .cell {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .cell.taken {
+      cursor: not-allowed;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    @media (max-width: 400px) {
+      .cell {
+        width: 70px;
+        height: 70px;
+        font-size: 1.5rem;
+      }
+      .board {
+        gap: 3px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Tic Tac Toe</h1>
+  <div id="menu">
+    <label>
+      <input type="radio" name="mode" value="2p" checked> Két játékos mód
+    </label>
+    <label>
+      <input type="radio" name="mode" value="1p"> Egy játékos mód (számítógép ellen)
+    </label>
+  </div>
+
+  <div class="board" id="board"></div>
+  <div id="status"></div>
+  <button id="restart">Új játék</button>
+
+  <script>
+    const boardElement = document.getElementById('board');
+    const statusElement = document.getElementById('status');
+    const restartButton = document.getElementById('restart');
+    const modeSelector = document.getElementsByName('mode');
+
+    let board;
+    let currentPlayer;
+    let gameActive;
+    let singlePlayerMode = false;
+
+    function initializeGame() {
+      board = Array(9).fill(null);
+      currentPlayer = 'X';
+      gameActive = true;
+      singlePlayerMode = Array.from(modeSelector).find(radio => radio.checked).value === '1p';
+      statusElement.textContent = '';
+      renderBoard();
+    }
+
+    function renderBoard() {
+      boardElement.innerHTML = '';
+      board.forEach((cell, index) => {
+        const cellElement = document.createElement('div');
+        cellElement.classList.add('cell');
+        if (cell) cellElement.classList.add('taken');
+        cellElement.textContent = cell;
+        cellElement.addEventListener('click', () => handleCellClick(index));
+        boardElement.appendChild(cellElement);
+      });
+    }
+
+    function handleCellClick(index) {
+      if (!gameActive || board[index]) return;
+
+      board[index] = currentPlayer;
+      renderBoard();
+
+      if (checkWin()) {
+        statusElement.textContent = `${currentPlayer} játékos nyert.`;
+        gameActive = false;
+        return;
+      }
+
+      if (board.every(cell => cell)) {
+        statusElement.textContent = 'A játék döntetlen.';
+        gameActive = false;
+        return;
+      }
+
+      currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+
+      if (singlePlayerMode && currentPlayer === 'O') {
+        computerMove();
+      }
+    }
+
+    function computerMove() {
+      const availableMoves = board.map((cell, index) => cell ? null : index).filter(index => index !== null);
+      const randomMove = availableMoves[Math.floor(Math.random() * availableMoves.length)];
+      handleCellClick(randomMove);
+    }
+
+    function checkWin() {
+      const winPatterns = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
+      ];
+
+      return winPatterns.some(pattern =>
+        pattern.every(index => board[index] === currentPlayer)
+      );
+    }
+
+    restartButton.addEventListener('click', initializeGame);
+    Array.from(modeSelector).forEach(radio => radio.addEventListener('change', initializeGame));
+
+    initializeGame();
+  </script>
+</body>
+</html>
