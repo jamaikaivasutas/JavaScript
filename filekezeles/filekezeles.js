@@ -1,29 +1,52 @@
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const filePath = path.join(__dirname, "adatok.json")
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const filePath = path.join(__dirname, 'data.json');
 
-const users = [
-    {id : 1, name: 'Adam'},
-    {id : 2, name: 'Bianka'},
-    {id : 3, name: 'Cecil'},
-]
 
-try {
-fs.writeFileSync(filePath, JSON.stringify(users))
-} catch (err) {
-    console.log(err)
+function readFile() {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(JSON.parse(data));
+            }
+        });
+    });
 }
 
-let content = ''
-try {
-    content = fs.readFileSync(filePath, 'utf-8')
-    } catch (err) {
-        console.log(err)
-    }
-console.log(content)
 
-const newdata = JSON.parse(content)
-console.log(newdata)
+function writeFile(content) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile(filePath, JSON.stringify(content, null, 2), 'utf8', (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
+    });
+}
+
+
+async function updateFile() {
+    try {
+        let data = await readFile();
+        console.log('Original Content:', data);
+
+        const newData = [{ name: 'Kevin' }, { name: 'John Pork' }, { name: 'Meat Matthew' }];
+        data = data.concat(newData);
+
+        await writeFile(data);
+
+        const updatedData = await readFile();
+        console.log('Updated Content:', updatedData);
+    } catch (err) {
+        console.error('Error:', err);
+    }
+}
+
+updateFile();
