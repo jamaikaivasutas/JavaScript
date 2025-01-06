@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codewars Users</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
 </head>
-<body>
-    <header>
-        <h1>Codewars Users</h1>
-    </header>
-
-    <button class="toggle-mode">Toggle Dark/Light Mode</button>
-
-    <form id="user-form">
-        <input type="text" id="username" name="username" placeholder="Enter username" required>
-        <button type="submit">Fetch User</button>
+<body id="test">
+    <h1>Codewars felhasználók adatai</h1>
+   
+    <form action="javascript:getUserName()" id="inputField">
+        <label for="userName">Felhasználónév:</label>
+        <input type="text" id="userName" name="userName">
+        <input type="submit" value="submit">
+        <input type="button" onclick="userDataDelete()" value="Lekért adatok törlése" >
+        <input type="button" id="colorChanger" onclick="switchTheme()" value="Sötét mód">
     </form>
+    
+    <h2>Mentett felhasználók</h2>
 
-    <button class="clear-btn">Clear Data</button>
-
-    <div class="cards-container" id="cards-container"></div>
-
+    <div id="userDatas">
+        
+    </div>
+   
     <script src="script.js"></script>
 </body>
 </html>
