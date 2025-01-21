@@ -1,18 +1,7 @@
-(async () => {
-    await GetAllPosts();            
-    await GetPostById(1);           
-    await CreatePost();            
-    await UpdatePost(1);            
-    await PatchPost(1);             
-    await DeletePost(1);            
-  })();
-  
-
 async function GetAllPosts() {
     try {
       const response = await fetch('https://jsonplaceholder.typicode.com/posts');
       const posts = await response.json();
-      console.log(posts);
       return posts;
     } catch (error) {
       console.error('Hiba történt az összes post lekérése közben:', error);
@@ -20,11 +9,10 @@ async function GetAllPosts() {
   }
   
  
-  async function GetPostById(id) {
+async function GetPostById(id) {
     try {
       const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
       const post = await response.json();
-      console.log(post);
       return post;
     } catch (error) {
       console.error(`Hiba történt a(z) ${id} ID-jű post lekérése közben:`, error);
@@ -46,7 +34,6 @@ async function GetAllPosts() {
         },
       });
       const newPost = await response.json();
-      console.log(newPost);
       return newPost;
     } catch (error) {
       console.error('Hiba történt az új post létrehozása közben:', error);
@@ -69,7 +56,6 @@ async function GetAllPosts() {
         },
       });
       const updatedPost = await response.json();
-      console.log(updatedPost);
       return updatedPost;
     } catch (error) {
       console.error(`Hiba történt a(z) ${id} ID-jű post frissítése közben:`, error);
@@ -89,7 +75,6 @@ async function GetAllPosts() {
         },
       });
       const patchedPost = await response.json();
-      console.log(patchedPost);
       return patchedPost;
     } catch (error) {
       console.error(`Hiba történt a(z) ${id} ID-jű post részleges frissítése közben:`, error);
@@ -111,4 +96,13 @@ async function GetAllPosts() {
       console.error(`Hiba történt a(z) ${id} ID-jű post törlése közben:`, error);
     }
   }
+  
+  (async () => {
+    console.log(await GetAllPosts());            
+    console.log(await GetPostById(1));           
+    console.log(await CreatePost());            
+    console.log(await UpdatePost(1));            
+    console.log(await PatchPost(1));             
+    console.log(await DeletePost(1));            
+  })();
   
