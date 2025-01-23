@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurzusok és Diákok</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Kurzusok és Diákok Kezelése</h1>
+        <div class="buttons">
+            <button id="showCourses">Kurzusok</button>
+            <button id="showStudents">Diákok</button>
+        </div>
+
+        <div id="coursesSection" class="hidden">
+            <h2>Kurzusok</h2>
+            <button class="add-button" onclick="showCreateForm('course')">Új kurzus</button>
+            <ul id="coursesList"></ul>
+        </div>
+
+        <div id="studentsSection" class="hidden">
+            <h2>Diákok</h2>
+            <button class="add-button" onclick="showCreateForm('student')">Új diák</button>
+            <ul id="studentsList"></ul>
+        </div>
+
+        <div id="formSection" class="hidden">
+            <h2 id="formTitle"></h2>
+            <form id="dataForm" onsubmit="handleSubmit(event)">
+                <input type="hidden" id="formType">
+                <input type="hidden" id="editId">
+                <label for="name">Név:</label>
+                <input type="text" id="name" required>
+                <div class="form-buttons">
+                    <button type="submit" class="save-button">Mentés</button>
+                    <button type="button" class="cancel-button" onclick="hideForm()">Mégse</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
