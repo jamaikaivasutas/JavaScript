@@ -63,7 +63,7 @@ async function deleteCar(id) {
         });
         if (response.ok) {
             console.log(`Törölt autó ID alapján (${id})`);
-        } else {
+        } else { 
             console.error(`Sikertelen törlés ID alapján (${id})`);
         }
     } catch (error) {
