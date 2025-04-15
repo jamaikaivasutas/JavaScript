@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f8f9fa;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 2.5rem;
+    color: #343a40;
+}
+
+/* Timetable Table */
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+th, td {
+    width: 120px;
+    height: 100px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+td:hover {
+    background-color: #e9f5ff;
+    cursor: pointer;
+}
+
+/* Highlight selected cell */
+.selected {
+    border: 3px solid #343a40;
+    background-color: #d1ecf1;
+}
+
+/* Input & Buttons */
+#inputLabel,
+#classNameInput,
+#classAddButton,
+#classDeleteButton,
+#classUpdateButton {
+    display: none;
+}
+
+#inputLabel {
+    display: block;
+    margin: 30px auto 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #495057;
+}
+
+#classNameInput {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 20px;
+    border: 2px solid #ced4da;
+    border-radius: 30px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+#classNameInput:focus {
+    border-color: #007bff;
+}
+
+/* Action Buttons */
+button {
+    background-color: #17a2b8;
+    color: white;
+    padding: 10px 25px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 30px;
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3
+}
