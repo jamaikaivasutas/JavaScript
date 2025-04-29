@@ -3,6 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>kreta</title>
+</head>
+<body>
+    <h1>Tanulók és kurzusok kezelése</h1>
+
+    <div id="choose" class="design">
+        <div>
+            <label for="student">Tanuló</label>
+            <input type="radio" name="studentCourseChoose" id="student" checked>
+        </div>
+
+        <div>
+            <label for="course">Kurzus</label>
+            <input type="radio" name="studentCourseChoose" id="course">
+    </div>
+    </div>
+
+    <div id="chooseButtons">
+        <button onclick="addNewSomething()">
+            Új hozzáadása
+        </button>
+        <button onclick="modifySomething()">
+            Meglévő módosítása
+        </button>
+        <button onclick="deleteSomething()">
+            Meglévő törlése
+        </button>
+    </div>
+
+    <div id="workingField" class="design">
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
     <title>Kurzusok és Diákok</title>
     <link rel="stylesheet" href="styles.css">
 </head>

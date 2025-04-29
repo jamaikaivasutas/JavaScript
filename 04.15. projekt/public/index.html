@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Órarend</title>
+</head>
+<body>
+    <h1>Órarend</h1>
+    <div >
+        <table id="orarend">
+            
+        </table>
+    </div>
+    <div id="modositas">
+        <label for="classNameInput" id="inputLabel">Óra neve:</label>
+        <input type="text" id="classNameInput">
+        <button id="classAddButton" onclick="addLesson()">Óra Hozzáadása</button>
+        <button id="classUpdateButton" onclick="updateLesson()" >Óra Módósítása</button>
+        <button id="classDeleteButton" onclick="deleteLesson()">Óra Törlése</button>
+        <p id="message"></p>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>

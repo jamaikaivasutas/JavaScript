@@ -20,7 +20,7 @@ async function GetPostById(id) {
   }
   
 
-  async function CreatePost() {
+async function CreatePost() {
     try {
       const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
@@ -41,7 +41,7 @@ async function GetPostById(id) {
   }
   
 
-  async function UpdatePost(id) {
+async function UpdatePost(id) {
     try {
       const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
         method: 'PUT',
@@ -63,7 +63,7 @@ async function GetPostById(id) {
   }
   
   
-  async function PatchPost(id) {
+async function PatchPost(id) {
     try {
       const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
         method: 'PATCH',
@@ -82,7 +82,7 @@ async function GetPostById(id) {
   }
   
  
-  async function DeletePost(id) {
+async function DeletePost(id) {
     try {
       const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
         method: 'DELETE',

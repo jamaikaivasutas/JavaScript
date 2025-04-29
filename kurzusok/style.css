@@ -1,0 +1,142 @@
+/* Global body styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f4f8; /* Soft, neutral light background */
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    height: 100vh;
+    margin: 0;
+    color: #333; /* Dark text for contrast */
+}
+
+/* Header styling */
+h1 {
+    margin: 20px 0;
+    font-size: 3.2rem;
+    color: #222; /* Very dark gray for the header text */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Choose Buttons container */
+#chooseButtons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Button styling */
+button {
+    padding: 16px 30px;
+    border: 2px solid #4e73df; 
+    border-radius: 50px;
+    background-color: #ffffff;
+    color: #4e73df; 
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #4e73df; /* Blue background on hover */
+    color: #ffffff; /* White text on hover */
+    transform: translateY(-4px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Design Section - Card-like container */
+.design {
+    width: 80%;
+    max-width: 500px;
+    padding: 40px;
+    margin-top: 50px;
+    border-radius: 20px;
+    background-color: #ffffff; /* White background for design container */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Soft shadows for depth */
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.design:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+}
+
+#workingField {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Input/Select fields styling */
+input,
+select {
+    padding: 12px 18px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 30px;
+    border: 2px solid #4e73df;
+    background-color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2a5cb8; /* Darker blue on focus */
+}
+
+/* Working field button & label styles */
+#workingField > button,
+#workingField > label {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #444; /* Dark gray text for better visibility */
+}
+
+/* Minor mobile responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem; /* Adjust header size on smaller screens */
+    }
+
+    #chooseButtons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .design {
+        padding: 30px;
+        width: 90%;
+    }
+
+    #workingField {
+        padding: 25px;
+        width: 90%;
+    }
+
+    input,
+    select {
+        max-width: 80%;
+    }
+}
