@@ -1,11 +1,11 @@
 {
-  "name": "beadando-04-29-ig",
+  "name": "roxfortapi",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node app.js",
+    "run": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [],
@@ -13,9 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "sqlite3": "^5.1.7"
+    "express": "^5.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
