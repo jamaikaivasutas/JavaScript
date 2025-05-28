@@ -101,10 +101,10 @@ let inputFieldsString = `<label for="albumNameInput" class="inputLabel">Album ne
             <label for="bandNameInput" class="inputLabel">Banda neve:</label>
             <input type="text" id="BandNameInput">
 <br>
-            <label for="numberOfSongsInput" class="inputLabel">zeneszámok száma:</label>
+            <label for="numberOfSongsInput" class="inputLabel">Zeneszámok száma:</label>
             <input type="number" id="numberOfSongsInput" min="1">
 <br>
-            <label for="lengthInput" class="inputLabel">hossza:</label>
+            <label for="lengthInput" class="inputLabel">Hossza:</label>
             <input type="number" id="lengthInput" min="1">
 <br>
             <p id="message"></p>`;
@@ -163,17 +163,17 @@ async function writeInformation() {
         }
     datas.innerHTML += `
             <button id="back" onclick="closeInformation()"> Vissza </button>
-    <p>Album neve: ${album.name}</p>
-    <p>Banda neve: ${album.band}</p>
-    <p>Albumon lévő zenék száma: ${album.numberOfSongs} db</p>
-    <p>Album hossza: ${album.length} perc</p></p>
+   <p class="data">album neve: ${album.name}</p>
+    <p class="data">bande neve: ${album.band}</p>
+    <p class="data">album zenéinek száma: ${album.numberOfSongs} darab</p>
+    <p class="data">album hossza: ${album.length} perc</p>
         <p id='updateField'><label for="albumNameInput" class="inputLabel">Album neve:</label>
             <input type="text" id="albumNameInput" value='${album.name}'>
             <br>
-            <label for="bandNameInput" class="inputLabel" >Művész/Művészek neve:</label>
+            <label for="bandNameInput" class="inputLabel" >Banda neve:</label>
             <input type="text" id="BandNameInput" value='${album.band}'>
 <br>
-            <label for="numberOfSongsInput" class="inputLabel" >Zenék száma:</label>
+            <label for="numberOfSongsInput" class="inputLabel" >Zeneszámok száma:</label>
             <input type="number" id="numberOfSongsInput" min="1" value='${album.numberOfSongs}'>
 <br>
             <label for="lengthInput" class="inputLabel" >Hossza:</label>
@@ -199,6 +199,14 @@ const numberOfSongs = document.getElementById("numberOfSongsInput").value
 const length = document.getElementById("lengthInput").value
 
     if (name != undefined && name.trim().length > 0 && band != undefined && band.trim().length > 0 && numberOfSongs != undefined && numberOfSongs > 0 && length != undefined && length > 0) {
+        for(let i = 0; i < albums.length; i++)
+        {
+            if(name.trim() == albums[i].name)
+            {
+                document.getElementById("message").innerHTML = "Album ilyen névvel már létezik!"
+                return
+            }
+        }
         let test = {
             "name": `${name.trim()}`,
             "band": `${band.trim()}`,
@@ -213,7 +221,7 @@ const length = document.getElementById("lengthInput").value
     addField.innerHTML = ""
     }
     else {
-        document.getElementById("message").innerHTML = "Adjon meg minden adatot!"
+        document.getElementById("message").innerHTML = "Adjon meg minden adatot(a számadatok nem lehetnek 0 vagy az alattiak)!"
     }
 }
 
@@ -240,6 +248,15 @@ async function updateAlbum() {
     const length = document.getElementById("lengthInput").value
 
     if (name != undefined && name.trim().length > 0 && band != undefined && band.trim().length > 0 && numberOfSongs != undefined && numberOfSongs > 0 && length != undefined && length > 0) {
+        for(let i = 0; i < albums.length; i++)
+            {
+                if(name.trim() == albums[i].name)
+                {
+                    document.getElementById("message").innerHTML = "Album ilyen névvel már létezik!"
+                    return
+                }
+            }
+        
         let test = {
            "name": `${name.trim()}`,
             "band": `${band.trim()}`,
@@ -254,7 +271,7 @@ async function updateAlbum() {
 
     }
     else {
-        message.innerHTML = "Adjon meg minden adatot!"
+        message.innerHTML = "Adjon meg minden adatot(a számadatok nem lehetnek 0 vagy az alattiak)!"
     }
 }
 
