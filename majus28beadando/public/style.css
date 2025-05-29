@@ -1,125 +1,179 @@
-/* Alapstílusok */
+/* Base Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 1rem;
-    background-color: #f9f9f9;
-    color: #333;
+    padding: 2rem 0.5rem;
+    background: linear-gradient(120deg, #f0e7ff 0%, #e0f7fa 100%);
+    color: #23213a;
+    min-height: 100vh;
 }
 
 h1 {
     text-align: center;
-    color: #005f73;
+    color: #6c47ff;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    font-weight: 700;
 }
 
-/* Menü */
+/* Navigation Menu */
 ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
 }
 
 ul li {
-    background-color: #0a9396;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    background: #fff;
+    color: #6c47ff;
+    padding: 0.8rem 2rem;
+    border-radius: 6px; /* Sharper corners */
+    box-shadow: none;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-weight: 500;
+    border: 2px solid #e0e0e0;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    position: relative;
+    overflow: hidden;
 }
 
 ul li:hover {
-    background-color: #007f87;
+    background: #f0e7ff;
+    color: #6c47ff;
+    border-color: #6c47ff;
 }
 
-/* Input mezők és űrlap elemek */
+/* Form Inputs */
 input[type="text"],
 select {
     display: block;
     width: 100%;
-    max-width: 500px;
-    padding: 0.5rem;
-    margin: 0.5rem auto;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    max-width: 420px;
+    padding: 0.7rem 1rem;
+    margin: 0.7rem auto 1.2rem auto;
+    border: 2px solid #bdbdbd;
+    border-radius: 6px; /* Sharper corners */
+    background: #fafaff;
+    font-size: 1rem;
+    transition: border 0.2s;
 }
 
+input[type="text"]:focus,
+select:focus {
+    border-color: #6c47ff;
+    outline: none;
+}
+
+/* Buttons */
 button {
-    background-color: #94d2bd;
-    border: none;
-    color: #003845;
-    padding: 0.6rem 1.2rem;
+    background: #6c47ff;
+    border: 2px solid #6c47ff;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
     margin-top: 1rem;
     cursor: pointer;
-    border-radius: 6px;
-    transition: background-color 0.3s;
+    border-radius: 6px; /* Sharper corners */
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    letter-spacing: 1px;
 }
 
 button:hover {
-    background-color: #72b8a4;
+    background: #fff;
+    color: #6c47ff;
+    border-color: #6c47ff;
 }
 
-/* Tartalom megjelenítés */
+/* Content Container */
 #tartalom {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px; /* Sharper corners */
+    box-shadow: 0 2px 12px rgba(108, 71, 255, 0.07);
+    border: 1.5px solid #e0e0e0;
 }
 
-/* Blog lista */
+/* Blog List/Card */
 .lista {
-    background-color: #e9ecef;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #f6f7fb;
+    border-radius: 8px; /* Sharper corners */
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: none;
+    border-left: 4px solid #6c47ff;
+    border-top: 1.5px solid #e0e0e0;
+    border-bottom: 1.5px solid #e0e0e0;
+    border-right: 1.5px solid #e0e0e0;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.lista:hover {
+    background: #e0f7fa;
+    border-left: 4px solid #00bcd4;
 }
 
 .lista p {
-    margin: 0.4rem 0;
+    margin: 0.5rem 0;
+    color: #3a3a4d;
 }
 
-/* Gombok bloghoz */
+/* Blog Buttons */
 .lista button {
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.95rem;
+    border-radius: 6px; /* Sharper corners */
+    background: #fff;
+    color: #6c47ff;
+    border: 2px solid #6c47ff;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s, border 0.2s;
 }
 
-/* Üzenetek */
+.lista button:hover {
+    background: #6c47ff;
+    color: #fff;
+    border-color: #6c47ff;
+}
+
+/* Messages */
 #message {
-    color: #d00000;
+    color: #e53935;
     text-align: center;
     font-weight: bold;
+    margin-top: 1.2rem;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
 }
 
-/* Reszponzivitás */
-@media screen and (max-width: 600px) {
+/* Responsive Design */
+@media screen and (max-width: 700px) {
+    #tartalom {
+        padding: 1rem;
+    }
     ul {
         flex-direction: column;
         align-items: center;
+        gap: 0.7rem;
     }
-
     ul li {
-        width: 80%;
+        width: 90%;
         text-align: center;
     }
-
     .lista {
-        padding: 0.8rem;
+        padding: 1rem;
     }
-
     input[type="text"],
     select {
-        width: 90%;
+        width: 95%;
     }
 }
-
-#message{
-    color: rgb(189, 9, 9);
-    text-align: center;
-    margin-top: 10px;
-    font-size: larger;
-}
-
