@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #222831;
+    padding: 1rem;
+    color: #EEEEEE;
+}
+
+/* Fejléc */
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #FFD369;
+    font-size: 2rem;
+}
+
+/* Menü */
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+ul li {
+    background-color: #393E46;
+    color: #FFD369;
+    padding: 0.7rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+ul li:hover {
+    background-color: #FFD369;
+    color: #222831;
+}
+
+/* Tartalom terület */
+#content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #393E46;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 211, 105, 0.3);
+}
+
+/* Form elemek */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.6rem;
+    margin: 0.8rem auto;
+    display: block;
+    border: 2px solid #FFD369;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: #EEEEEE;
+    color: #222831;
+}
+
+/* Gombok */
+button {
+    background-color: #FFD369;
+    color: #222831;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #FFBA08;
+}
+
+/* Listaelemek */
+.lista {
+    background-color: #EEEEEE;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-left: 6px solid #FFD369;
+    border-radius: 12px;
+    color: #222831;
+}
+
+.lista p {
+    margin: 0.5rem 0;
+}
+
+/* Üzenetek */
+#message {
+    color: #E94560;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* Mobil nézet */
+@media (max-width: 600px) {
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ul li {
+        width: 90%;
+        text-align: center;
+    }
+
+    #tartalom {
+        padding: 1rem;
+    }
+
+    input, select {
+        width: 90%;
+    }
+}
