@@ -1,0 +1,114 @@
+/* style.css */
+
+/* Globális beállítások */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --text-color: #333;
+    --border-radius: 6px;
+    --transition-speed: 0.3s;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  /* Konténer a tartalomnak */
+  .container {
+    background-color: #fff;
+    max-width: 480px;
+    width: 100%;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Címsorok */
+  h1, h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+  }
+  
+  /* Űrlap stílus */
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  label {
+    display: block;
+    font-weight: 500;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    transition: border-color var(--transition-speed);
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 3px rgba(74, 144, 226, 0.5);
+  }
+  
+  /* Gomb stílus */
+  button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+  }
+  
+  button:hover {
+    background-color: #357ab8;
+  }
+  
+  /* Mentett adatok megjelenítése */
+  #output {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  #output p {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+  }
+  
+  #output .na {
+    color: #999;
+    font-style: italic;
+  }
+  
+  /* Reszponzív szabályok */
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
