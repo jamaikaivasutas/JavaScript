@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="hu">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+<head>
+  <meta charset="UTF-8">
+  <title>Felhasználói Adatok</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Felhasználói Adatok</h2>
+    <input type="text" id="nev" placeholder="Név">
+    <input type="text" id="telepules" placeholder="Település">
+    <input type="text" id="iranyitoszam" placeholder="Irányítószám">
+    <input type="text" id="kozterulet" placeholder="Közterület">
+    <input type="text" id="hazszam" placeholder="Házszám">
 
-    <title>Szeptember 4 feladat</title>
-  </head>
-  <body>
-    <div>
-      <label for="name">Neve: </label>
-      <input type="text" id="name" name="name"><br>
-      <label for="postalCode"> Irányítószáma: </label>
-      <input type="text" id="postalCode" name="postalCode"><br>
-      <label for="settlementName"> Település neve: </label>
-      <input type="text" id="settlementName" name="settlementName"><br>
-      <label for="streetName"> Utca/Közterület neve: </label>
-      <input type="text" id="streetName" name="streetName"><br>
-      <label for="houseNumber"> Házszám </label>
-      <input type="text" id="houseNumber" name="houseNumber"><br>
+    <div class="buttons">
+      <button onclick="mentes()">Mentés</button>
+      <button onclick="torles()">Törlés</button>
     </div>
-  </body>
+
+    <div class="output" id="adatok">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
