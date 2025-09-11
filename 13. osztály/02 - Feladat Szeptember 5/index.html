@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Viccek API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Viccek API</h1>
+
+  <label for="mode">Lekérés módja:</label>
+  <select id="mode">
+    <option value="random">Véletlenszerű</option>
+    <option value="id">ID alapján</option>
+    <option value="type">Típus alapján</option>
+  </select>
+
+  <input type="text" id="inputValue" placeholder="Add meg az ID-t vagy típust">
+  <button onclick="getJoke()">Vicc generálása</button>
+
+  <div class="joke-box" id="jokeBox">
+    <p><strong>Viccek itt jelennek meg...</strong></p>
+  </div>
+
+  <script src="script.js">
+   
+  </script>
+</body>
+</html>
