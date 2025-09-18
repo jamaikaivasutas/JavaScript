@@ -42,6 +42,24 @@ app.post("/users", (req, res) => {
 })  
 
 //PUT
+app.put("/users/:id", (req, res) => {
+    const id = Number(req.params.id);
+    let user = users.find(user => user.id === id)
+    if(!user){
+        return res.status(404).json({message: "User not found"});
+    }
+    const {name, age} = req.body;
+    if (!name || !age){
+        return res.status(400).json({message: "Invalid credentials"});
+    }
+    const index = users.indexOf(user);
+    user = {
+        id: user.id,
+        name: name,
+        age: age}
+    users[index] = user;
+    res.status(200).json(user);
+})
 
 //DELETE
 app.delete("/users/:id", (req, res) => {
@@ -53,6 +71,23 @@ app.delete("/users/:id", (req, res) => {
     const index = users.indexOf(user)
     users.splice(index, 1);
     res.status(200).json({message: "Deleted successfully"})
+})
+
+//PATCH
+app.patch("/users/:id", (req, res) => {
+    const id = Number(req.params.id);
+    let user = users.find(user => user.id === id)
+    if(!user){
+        return res.status(404).json({message: "User not found"});
+    }
+    const {name, age} = req.body;
+    const index = users.indexOf(user);
+    user = {
+        id: user.id,
+        name: name || user.name,
+        age: age || user.age}
+    users[index] = user;
+    res.status(200).json(user);
 })
 
 
