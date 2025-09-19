@@ -60,6 +60,19 @@ app.put("/cars/:id", (req,res) => {
     res.status(200).json(car);
 })
 
+//DELETE
+
+app.delete("/cars/:id", (req,res) => {
+    const id = Number(req.params.id);
+    const car = cars.find(car => car.id === id);
+    if(!car){
+        return res.status(404).json({message: "Car not found"})
+    }
+    const index = cars.indexOf(car);
+    cars.splice(index, 1);
+    res.status(200).json({message: "Deleted successfully"});
+} )
+
 
 
 app.listen(PORT, () =>{
