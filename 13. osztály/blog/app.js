@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
 
-app.use("/api", usersRoutes);
-app.use("/api", postsRoutes);
+app.use("/users", usersRoutes);
+app.use("/posts", postsRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server runs on port ${PORT}`);
