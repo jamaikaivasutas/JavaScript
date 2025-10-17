@@ -1,18 +1,15 @@
-import express from "express";
-import cors from "cors";
-import * as postsRoutes from "./routes/postsRoutes.js";
-import * as usersRoutes from "./routes/usersRoutes.js";
+import express from 'express'
+import usersRoutes from './routes/usersRoutes.js'
+import postsRoutes from "./routes/postsRoutes.js"
 
-const PORT = 3000;
-const app = express();
+const PORT = 3000
+const app = express()
 
-app.use(express.json());
-app.use(cors());
-app.use(express.static("public"));
+app.use(express.json())
 
-app.use("/users", usersRoutes);
-app.use("/posts", postsRoutes);
+app.use("/users", usersRoutes)
+app.use("/posts", postsRoutes)
 
 app.listen(PORT, () => {
-  console.log(`Server runs on port ${PORT}`);
-});
+    console.log(`Server runs on port http://localhost:${PORT}`)
+})

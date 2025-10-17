@@ -1,71 +1,126 @@
-import express from "express";
-import bcrypt from "bcrypt";
+import { Router } from "express";
 import * as Users from "../data/user.js";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", (req, res) => {
-  res.send("Users");
+  const users = Users.getUsers();
+  res.json(users);
 });
 
-router.post("/user", (req, res) => {
+// router.get("/:id", (req, res) => {
+//   const user = Users.getUserById(+req.params.id);
+//   if (!user) {
+//     return res.status(404).json({ message: "User not found" });
+//   }
+//   res.json(user);
+// });
+
+router.get("/me", auth, (req, res) => {
+  const user = Users.getUserById(+req.userId);
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+  res.json(user);
+});
+
+router.post("/register", (req, res) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) {
     return res.status(400).json({ message: "Missing required data" });
   }
-  const salt = bcrypt.genSaltSync(12);
+  let user = Users.getUserByEmail(email);
+  if (user) {
+    return res.status(400).json({ message: "Email already already exists" });
+  }
+  const salt = bcrypt.genSaltSync();
   const hashedPassword = bcrypt.hashSync(password, salt);
   const saved = Users.saveUser(name, email, hashedPassword);
-  const user = Users.getUserByid(saved.lastInsertRowid);
+  user = Users.getUserById(saved.lastInsertRowid);
+  res.json(user);
+});
+
+router.put("/:id", auth, (req, res) => {
+  const id = +req.params.id;
+  if (id != req.userId) {
+    return res.status(404).json({ message: "User not found" });
+  }
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ message: "Missing required data" });
+  }
+  const salt = bcrypt.genSaltSync();
+  const hashedPassword = bcrypt.hashSync(password, salt);
+  Users.updateUser(id, name, email, hashedPassword);
+  user = Users.getUserById(id);
+  res.json(user);
+});
+
+router.patch("/:id", auth, (req, res) => {
+  const id = +req.params.id;
+  if (id != req.userId) {
+    return res.status(404).json({ message: "User not found" });
+  }
+  const { name, email, password } = req.body;
+  let hashedPassword;
+  if (password) {
+    const salt = bcrypt.genSaltSync();
+    hashedPassword = bcrypt.hashSync(password, salt);
+  }
+  Users.updateUser(
+    id,
+    name || user.name,
+    email || user.email,
+    hashedPassword || user.password
+  );
+  user = Users.getUserById(id);
   delete user.password;
-  res.status(200).json(user);
+  res.json(user);
+});
+
+router.delete("/:id", auth, (req, res) => {
+  if (id != req.userId) {
+    return res.status(404).json({ message: "User not found" });
+  }
+  Users.deleteUser(+req.params.id);
+  delete req.userId;
+  delete req.headers.authorization;
+  res.json({ message: "User delete success" });
 });
 
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res.status(400).json({ message: "Missing some required data" });
+    return res.status(401).json({ message: "Invalid credentials" });
   }
-  const user = Users.getUserByEamil(email);
+  const user = Users.getUserByEmail(email);
   if (!user) {
-    return res.status(400).json({ message: "Invalid credentials" });
+    return res.status(401).json({ message: "Invalid credentials" });
   }
   if (!bcrypt.compareSync(password, user.password)) {
     return res.status(401).json({ message: "Invalid credentials" });
   }
-  const token = jwt.sign(
-    { userId: user.id, userEmail: user.email },
-    "secret_key",
-    { expiresIn: "30m" }
-  );
+  const token = jwt.sign({ id: user.id, email: user.email }, "secret_key", {
+    expiresIn: "30m",
+  });
   res.json(token);
 });
 
-router.get("/me", (req, res) => {
-  const user = Users.getUserByid(req.userId);
-  delete user.password;
-  res.json(user);
-});
-
-function auth(req, res, next) {
-  try {
-    const accessToken = req.headers.authorization;
-    if (!accessToken) {
-      return res.status(401).json({ message: "Unathorized" });
-    }
-    
-    const token = jwt.verify(accessToken.split(" ")[1], "secret_key");
-    const now = Math.floor(Date.now() / 1000);
-    if (!token.exp || token.exp < now) {
-      return res.status(403).json({ message: "Token expired" });
-    }
-    req.usersId = token.userId;
-    req.userEmail = token.userEmail;
-
-    next();
-  } catch (err) {
-    res.status;
+export function auth(req, res, next) {
+  const accessToken = req.headers.authorization;
+  if (!accessToken) {
+    return res.status(401).json({ message: "Unauthorized" });
   }
+  const token = accessToken.split(" ")[1];
+  const data = jwt.verify(token, "secret_key");
+  const now = Math.floor(Date.now() / 1000);
+  if (data?.exp < now) {
+    return res.status(403).json({ message: "Token expired" });
+  }
+  req.userId = data.id;
+  next();
 }
+
 export default router;
