@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jegyzetmegosztó Rendszer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Login/Register Page -->
+      <div id="auth-page" class="page active">
+        <div class="auth-container">
+          <h1>Jegyzetmegosztó</h1>
+
+          <div class="auth-tabs">
+            <button class="tab-btn active" onclick="showLoginForm()">
+              Bejelentkezés
+            </button>
+            <button class="tab-btn" onclick="showRegisterForm()">
+              Regisztráció
+            </button>
+          </div>
+
+          <!-- Login Form -->
+          <form id="login-form" class="auth-form">
+            <div class="form-group">
+              <label for="login-username">Felhasználónév</label>
+              <input type="text" id="login-username" required />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Jelszó</label>
+              <input type="password" id="login-password" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Bejelentkezés</button>
+            <div id="login-error" class="error-message"></div>
+          </form>
+
+          <!-- Register Form -->
+          <form id="register-form" class="auth-form" style="display: none">
+            <div class="form-group">
+              <label for="register-username">Felhasználónév</label>
+              <input type="text" id="register-username" required />
+            </div>
+            <div class="form-group">
+              <label for="register-password">Jelszó</label>
+              <input type="password" id="register-password" required />
+            </div>
+            <div class="form-group">
+              <label for="register-password-confirm">Jelszó megerősítése</label>
+              <input type="password" id="register-password-confirm" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Regisztráció</button>
+            <div id="register-error" class="error-message"></div>
+          </form>
+        </div>
+      </div>
+
+      <div id="notes-page" class="page">
+        <nav class="navbar">
+          <div class="nav-content">
+            <h1>Jegyzeteim</h1>
+            <div class="nav-actions">
+              <span id="username-display" class="username"></span>
+              <button class="btn btn-secondary" onclick="logout()">
+                Kijelentkezés
+              </button>
+            </div>
+          </div>
+        </nav>
+
+        <div class="main-content">
+          <div class="content-header">
+            <div class="tabs">
+              <button class="tab-btn active" onclick="showTab('public')">
+                Nyilvános jegyzetek
+              </button>
+              <button class="tab-btn" onclick="showTab('my')">
+                Saját jegyzetek
+              </button>
+            </div>
+            <button class="btn btn-primary" onclick="showNoteModal()">
+              + Új jegyzet
+            </button>
+          </div>
+
+          <div id="public-notes-tab" class="tab-content active">
+            <div id="public-notes-list" class="notes-grid"></div>
+          </div>
+
+          <div id="my-notes-tab" class="tab-content">
+            <div id="my-notes-list" class="notes-grid"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="note-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modal-title">Új jegyzet</h2>
+            <button class="close-btn" onclick="closeNoteModal()">
+              &times;
+            </button>
+          </div>
+          <form id="note-form">
+            <div class="form-group">
+              <label for="note-title">Cím</label>
+              <input type="text" id="note-title" required />
+            </div>
+            <div class="form-group">
+              <label for="note-content">Tartalom</label>
+              <textarea id="note-content" rows="10" required></textarea>
+            </div>
+            <div class="form-group checkbox-group">
+              <label>
+                <input type="checkbox" id="note-public" />
+                Nyilvános jegyzet
+              </label>
+            </div>
+            <div class="modal-actions">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="closeNoteModal()"
+              >
+                Mégse
+              </button>
+              <button type="submit" class="btn btn-primary">Mentés</button>
+            </div>
+            <div id="note-error" class="error-message"></div>
+          </form>
+        </div>
+      </div>
+
+      <div id="view-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="view-note-title"></h2>
+            <button class="close-btn" onclick="closeViewModal()">
+              &times;
+            </button>
+          </div>
+          <div class="note-meta">
+            <span id="view-note-author"></span>
+            <span id="view-note-date"></span>
+          </div>
+          <div id="view-note-content" class="note-view-content"></div>
+          <div class="modal-actions" id="view-note-actions"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
