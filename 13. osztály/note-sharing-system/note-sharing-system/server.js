@@ -6,19 +6,17 @@ const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
 const PORT = 3000;
-const JWT_SECRET = "your-secret-key-change-in-production";
+const JWT_SECRET = "secret";
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-// Initialize SQLite database
 const db = new sqlite3.Database("./notes.db", (err) => {
   if (err) console.error("Database connection error:", err);
   else console.log("Connected to SQLite database");
 });
 
-// Create tables
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,7 +35,6 @@ db.serialize(() => {
   )`);
 });
 
-// Middleware to verify JWT token
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
@@ -51,7 +48,6 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
-// AUTH ENDPOINTS
 app.post("/api/register", async (req, res) => {
   const { username, password } = req.body;
 
@@ -119,7 +115,6 @@ app.post("/api/login", (req, res) => {
   );
 });
 
-// NOTES ENDPOINTS
 app.post("/api/notes", authenticateToken, (req, res) => {
   const { title, content, is_public } = req.body;
   const userId = req.user.id;
