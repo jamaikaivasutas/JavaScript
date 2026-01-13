@@ -1,0 +1,53 @@
+.bold {
+  font-weight: bolder;
+}
+
+.card-title {
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 20px;
+}
+
+.card {
+  width: 20rem;
+  position: relative;
+  top: 5rem;
+  left: 50%;
+}
+
+.container {
+  position: absolute;
+}
+
+.card-subtitle {
+  text-align: center;
+  font-size: 35px;
+}
+
+#grey {
+  color: grey;
+}
+
+ul {
+  list-style-type: none;
+  list-style: outside none;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  padding-top: 0.5rem;
+}
+
+.card-text {
+  text-align: center;
+  font-size: 13px;
+}
+
+button {
+  color: white;
+  background-color: black;
+  border-radius: 7.5px;
+  padding: 0.5rem;
+  margin: 0.75rem;
+}
