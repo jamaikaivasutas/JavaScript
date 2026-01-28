@@ -1,0 +1,15 @@
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\bin\Debug\net10.0\szamnegyes.exe
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\bin\Debug\net10.0\szamnegyes.deps.json
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\bin\Debug\net10.0\szamnegyes.runtimeconfig.json
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\bin\Debug\net10.0\szamnegyes.dll
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\bin\Debug\net10.0\szamnegyes.pdb
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\szamnegyes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\szamnegyes.AssemblyInfoInputs.cache
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\szamnegyes.AssemblyInfo.cs
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\szamnegyes.csproj.CoreCompileInputs.cache
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\szamnegyes.sourcelink.json
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\szamnegyes.dll
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\refint\szamnegyes.dll
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\szamnegyes.pdb
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\szamnegyes.genruntimeconfig.cache
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\1. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0\ref\szamnegyes.dll

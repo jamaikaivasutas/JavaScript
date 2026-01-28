@@ -1,0 +1,8 @@
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\2. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0-windows\GridGame.GridGameForm.resources
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\2. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0-windows\szamnegyes.csproj.GenerateResource.cache
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\2. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0-windows\szamnegyes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\2. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0-windows\szamnegyes.AssemblyInfoInputs.cache
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\2. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0-windows\szamnegyes.AssemblyInfo.cs
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\2. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0-windows\szamnegyes.csproj.CoreCompileInputs.cache
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\2. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0-windows\szamnegyes.sourcelink.json
+C:\Users\b1duzale\Desktop\JavaScript\13. osztály\szamnegyes\2. feladat\szamnegyes\szamnegyes\obj\Debug\net10.0-windows\szamnegyes.GridGameForm.resources
